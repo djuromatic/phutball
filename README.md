@@ -1,4 +1,5 @@
-To run application do fallowing 
+# To run application do fallowing 
 
-npm install
-npm run serve
+# npm install
+
+# npm run serve
