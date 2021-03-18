@@ -57,9 +57,6 @@ export default {
       }
     },
   },
-  data() {
-    return {};
-  },
   mounted() {
     this.extend_setInitBoard();
   },

@@ -4,15 +4,13 @@ import { initBoard, initPlayers } from './initial-state'
 
 Vue.use(Vuex)
 
-
-
-
 const store = new Vuex.Store({
     state: {
         players: {},
         board: {},
         history: [],
-        ballSelected: false
+        ballSelected: false,
+        gameStarted: false
     },
     getters: {
         getBoard: state => {
@@ -20,7 +18,6 @@ const store = new Vuex.Store({
         },
 
         getPlayers: state => {
-            // console.log("STATE GET PLAYERS", state.players)
             return state.players
         },
 
@@ -30,6 +27,10 @@ const store = new Vuex.Store({
 
         getBallSelected: state => {
             return state.ballSelected
+        },
+
+        getGameStart: state => {
+            return state.gameStarted
         }
 
     },
@@ -37,7 +38,7 @@ const store = new Vuex.Store({
         setInitState(state) {
             state.board = initBoard()
             state.players = initPlayers()
-            console.log(state)
+
         },
 
         setNewBoard(state, payload) {
@@ -54,6 +55,10 @@ const store = new Vuex.Store({
 
         setBallSelected(state, payload) {
             state.ballSelected = payload
+        },
+
+        setGameStart(state, payload) {
+            state.gameStarted = payload
         }
     },
     actions: {
@@ -71,6 +76,9 @@ const store = new Vuex.Store({
         },
         setBallSelected(context, payload) {
             context.commit('setBallSelected', payload)
+        },
+        setGameStart(context, payload) {
+            context.commit('setGameStart', payload)
         }
     }
 })

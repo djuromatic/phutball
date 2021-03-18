@@ -1,6 +1,4 @@
-import { PLAYER_OKS, PLEYER_EKS } from '../util/game-constants'
-const columns = 15
-const rows = 20
+import { PLAYER_OKS, PLEYER_EKS, COLUMNS, ROWS } from '../util/game-constants'
 const defaultTileState = {
     disabled: true,
     selected: false,
@@ -8,7 +6,7 @@ const defaultTileState = {
     ball: false,
 }
 
-const getAlphaFromNumber = (number) => {
+export const getAlphaFromNumber = (number) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const alphabetList = alphabet.slice("");
     return alphabetList[number];
@@ -26,18 +24,18 @@ export const initPlayers = () => {
         }
     }
 }
-initPlayers
+
 
 export const initBoard = () => {
     let tiles = [];
-    for (let i = 0; i < rows; i++) {
+    for (let i = 0; i < ROWS; i++) {
         tiles[i] = [];
-        for (let j = 0; j < columns; j++) {
+        for (let j = 0; j < COLUMNS; j++) {
             tiles[i].push({
                 id: `${getAlphaFromNumber(j)}${i + 1}`,
                 row: i,
                 col: j,
-                goal: i === 0 || i === rows - 1 ? true : null,
+                goal: i === 0 || i === ROWS - 1 ? true : null,
                 ...defaultTileState,
             });
         }

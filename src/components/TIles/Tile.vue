@@ -39,7 +39,6 @@ export default {
   methods: {
     onTileClick() {
       if (!this.extend_ballSelected && !this.ball && !this.player) {
-        console.log(this.tile.id);
         this.extend_setPlayerPiece(this.tile.id);
       }
       if (this.ball && !this.player && !this.extend_ballSelected) {
